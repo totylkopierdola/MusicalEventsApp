@@ -1,8 +1,9 @@
+import Layout from '@/components/Layout';
 import React from 'react';
 
 const about = () => {
   return (
-    <>
+    <Layout title="About Events">
       <h1>About Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio libero magnam dolore quisquam
@@ -12,7 +13,7 @@ const about = () => {
       <a href="/">
         Home
       </a>
-    </>
+    </Layout>
   );
 };
 
