@@ -10,9 +10,6 @@ const about = () => {
         obcaecati quasi, ducimus, dicta voluptas quis neque laudantium laborum dignissimos.
         Blanditiis excepturi id non quod, voluptatibus exercitationem?
       </p>
-      <a href="/">
-        Home
-      </a>
     </Layout>
   );
 };
