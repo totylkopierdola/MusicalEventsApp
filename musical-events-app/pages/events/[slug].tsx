@@ -1,9 +1,17 @@
-import React from 'react'
+import { useRouter } from 'next/router';
+import React from 'react';
 
 const EventPage = () => {
-  return (
-    <div>My event</div>
-  )
-}
+  const router = useRouter();
 
-export default EventPage
+  console.log(router.query.slug);
+
+  return (
+    <>
+      <div>My event <strong>{router.query.slug}</strong></div>
+      <button onClick={() => router.push('/')}>Click</button>
+    </>
+  );
+};
+
+export default EventPage;
