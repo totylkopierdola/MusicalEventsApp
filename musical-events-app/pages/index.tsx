@@ -1,15 +1,12 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
-import Link from 'next/link';
 import Layout from '@/components/Layout';
+import { API_URL } from '@/config/index';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <Layout >
+    <Layout>
       <h1>Home Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio libero magnam dolore quisquam
@@ -18,4 +15,14 @@ export default function Home() {
       </p>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`${API_URL}/api/events`);
+  const events = await res.json();
+
+  return {
+    props: { events },
+    revalidate: 1,
+  };
 }
