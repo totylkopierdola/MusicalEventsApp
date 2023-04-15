@@ -1,8 +1,10 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '@/styles/Layout.module.css'
 import Header from './Header'
 import Footer from './Footer'
+import Showcase from './Showcase'
 
 interface LayoutProps {
   title: string,
@@ -12,6 +14,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<Partial<LayoutProps>> = ({title, keywords, description, children}) => {
+  const router = useRouter()
   return (
     <div>
       <Head>
@@ -21,6 +24,8 @@ const Layout: React.FC<Partial<LayoutProps>> = ({title, keywords, description, c
       </Head>
         
       <Header/>
+      
+      {router.pathname === '/' && <Showcase/>}
 
     <div className={styles.container}>
       {children}
@@ -28,7 +33,6 @@ const Layout: React.FC<Partial<LayoutProps>> = ({title, keywords, description, c
 
       <Footer/>
     </div>
-
   )
 }
 
